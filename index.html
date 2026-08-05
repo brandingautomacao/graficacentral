@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vértice Gráfica Digital — Impressão, Sinalização e Brindes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#142537;
+    --navy-800:#1b3049;
+    --navy-700:#233c59;
+    --gold:#d3953d;
+    --gold-light:#e6b06a;
+    --gold-dark:#b87a2a;
+    --white:#ffffff;
+    --off:#f4f6f8;
+    --ink-soft:#9db0c2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--white);
+    color:var(--navy-900);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Archivo',sans-serif;
+    letter-spacing:-0.02em;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* ===== TOPBAR ===== */
+  .topbar{background:var(--navy-900);color:var(--ink-soft);font-size:13px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;}
+  .topbar a{color:var(--ink-soft);}
+  .topbar .contact-strip{display:flex;gap:22px;}
+  .topbar .contact-strip span{display:flex;align-items:center;gap:6px;}
+
+  /* ===== HEADER ===== */
+  header.main{
+    background:var(--white);
+    border-bottom:1px solid #e9edf1;
+    position:sticky;top:0;z-index:50;
+  }
+  header.main .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{
+    width:40px;height:40px;background:var(--navy-900);
+    display:flex;align-items:center;justify-content:center;
+    transform:rotate(45deg);position:relative;
+  }
+  .logo-mark::after{
+    content:'';width:16px;height:16px;background:var(--gold);
+    position:absolute;transform:rotate(0deg);
+  }
+  .logo-text{line-height:1.05;}
+  .logo-text b{display:block;font-family:'Archivo';font-weight:900;font-size:19px;color:var(--navy-900);}
+  .logo-text span{display:block;font-size:11px;letter-spacing:.14em;color:var(--gold-dark);font-weight:700;}
+  nav.primary{display:flex;gap:30px;font-weight:600;font-size:14.5px;}
+  nav.primary a{position:relative;padding:6px 0;color:var(--navy-800);}
+  nav.primary a::after{
+    content:'';position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:var(--gold);transition:width .25s ease;
+  }
+  nav.primary a:hover::after{width:100%;}
+  .header-cta{
+    display:flex;align-items:center;gap:10px;
+    background:var(--navy-900);color:var(--white);
+    padding:11px 20px;font-weight:700;font-size:14px;
+    border-radius:2px;
+  }
+  .header-cta:hover{background:var(--gold-dark);}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:var(--navy-900);
+    position:relative;overflow:hidden;
+    padding:78px 0 0;
+  }
+  .hero::before{
+    content:'';position:absolute;right:-120px;top:-120px;
+    width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(211,149,61,.18) 0%,transparent 70%);
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:40px;
+    align-items:center;position:relative;z-index:2;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--gold-light);font-weight:700;font-size:13px;
+    letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;
+  }
+  .eyebrow::before{content:'';width:26px;height:2px;background:var(--gold);}
+  .hero h1{
+    color:var(--white);font-size:52px;line-height:1.05;font-weight:900;
+    margin-bottom:22px;
+  }
+  .hero h1 em{color:var(--gold);font-style:normal;}
+  .hero p.lead{
+    color:var(--ink-soft);font-size:17px;line-height:1.6;max-width:480px;margin-bottom:32px;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-bottom:38px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 26px;font-weight:700;font-size:15px;border-radius:2px;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .btn-gold{background:var(--gold);color:var(--navy-900);}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-outline{border:1.5px solid rgba(255,255,255,.35);color:var(--white);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+  .hero-stats{display:flex;gap:34px;}
+  .hero-stats div{border-left:2px solid var(--gold);padding-left:14px;}
+  .hero-stats b{display:block;color:var(--white);font-family:'Archivo';font-size:24px;font-weight:800;}
+  .hero-stats span{color:var(--ink-soft);font-size:12.5px;}
+
+  .hero-visual{position:relative;height:440px;}
+  .stamp{
+    position:absolute;top:14px;right:8px;width:118px;height:118px;
+    border:2.5px dashed var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    transform:rotate(-14deg);z-index:5;
+    animation:spin 22s linear infinite;
+  }
+  @keyframes spin{from{transform:rotate(-14deg)}to{transform:rotate(346deg)}}
+  .stamp span{
+    color:var(--gold-light);font-family:'Archivo';font-weight:800;
+    font-size:11px;text-align:center;line-height:1.3;letter-spacing:.05em;
+    transform:rotate(14deg);
+  }
+  .card-float{
+    position:absolute;background:var(--white);border-radius:6px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);padding:16px 18px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .card-float .ico{
+    width:38px;height:38px;background:var(--navy-900);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .card-float .ico svg{width:20px;height:20px;stroke:var(--gold);}
+  .card-float b{display:block;font-size:13.5px;color:var(--navy-900);}
+  .card-float span{font-size:11.5px;color:#7a8a9a;}
+  .card1{top:40px;left:0;width:230px;}
+  .card2{bottom:100px;right:10px;width:210px;}
+  .card3{bottom:0;left:40px;width:220px;}
+  .hero-blob{
+    position:absolute;inset:60px 20px 20px 60px;
+    background:linear-gradient(145deg,var(--navy-700),var(--navy-800));
+    border-radius:24px;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  }
+  .hero-wave{
+    display:block;width:100%;margin-top:60px;
+  }
+
+  /* ===== TICKER ===== */
+  .ticker{background:var(--gold);overflow:hidden;padding:10px 0;}
+  .ticker-inner{display:flex;gap:50px;white-space:nowrap;animation:scroll-x 26s linear infinite;}
+  .ticker-inner span{font-family:'Archivo';font-weight:800;font-size:13px;color:var(--navy-900);letter-spacing:.05em;}
+  @keyframes scroll-x{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== SECTION SHARED ===== */
+  section{padding:88px 0;}
+  .section-head{max-width:620px;margin:0 auto 52px;text-align:center;}
+  .section-head .eyebrow{color:var(--gold-dark);justify-content:center;}
+  .section-head .eyebrow::before{display:none;}
+  .section-head h2{font-size:36px;font-weight:900;color:var(--navy-900);margin-bottom:14px;}
+  .section-head p{color:#5c6b7a;font-size:16px;line-height:1.6;}
+
+  /* ===== SERVICES ===== */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .service-card{
+    display:block;cursor:pointer;
+    background:var(--off);border-radius:8px;padding:32px 26px;
+    border-left:3px solid transparent;transition:.25s ease;
+  }
+  .service-card:hover{
+    background:var(--navy-900);border-left-color:var(--gold);transform:translateY(-4px);
+  }
+  .service-card:hover *{color:var(--white)!important;}
+  .service-card:hover .num{color:var(--gold)!important;}
+  .service-card .num{
+    font-family:'Archivo';font-weight:900;font-size:13px;color:var(--gold-dark);
+    letter-spacing:.1em;margin-bottom:16px;display:block;
+  }
+  .service-card .ico-wrap{
+    width:52px;height:52px;background:var(--navy-900);border-radius:10px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .service-card .ico-wrap svg{width:26px;height:26px;stroke:var(--gold);}
+  .service-card h3{font-size:19px;font-weight:800;margin-bottom:8px;color:var(--navy-900);}
+  .service-card p{font-size:14px;color:#6b7a89;line-height:1.55;}
+
+  /* ===== PROCESS ===== */
+  .process{background:var(--navy-900);position:relative;}
+  .process .section-head h2,.process .section-head p{color:var(--white);}
+  .process .section-head p{color:var(--ink-soft);}
+  .process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .process-row::before{
+    content:'';position:absolute;top:26px;left:8%;right:8%;height:1px;
+    background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 16px);
+  }
+  .process-step{text-align:center;padding:0 16px;position:relative;}
+  .step-dot{
+    width:54px;height:54px;border-radius:50%;background:var(--gold);
+    color:var(--navy-900);font-family:'Archivo';font-weight:900;font-size:18px;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;
+    position:relative;z-index:2;
+  }
+  .process-step h4{color:var(--white);font-size:16px;font-weight:800;margin-bottom:8px;}
+  .process-step p{color:var(--ink-soft);font-size:13.5px;line-height:1.5;}
+
+  /* ===== PRODUCTS SHOWCASE ===== */
+  .showcase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .prod-card{
+    border-radius:10px;overflow:hidden;position:relative;aspect-ratio:3/3.6;
+    background:linear-gradient(160deg,var(--off),#e6ebef);
+    display:flex;align-items:flex-end;padding:18px;
+  }
+  .prod-card::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(20,37,55,.88) 0%,rgba(20,37,55,0) 55%);
+  }
+  .prod-card .prod-glyph{
+    position:absolute;top:18px;right:18px;width:34px;height:34px;
+    border-radius:50%;background:rgba(211,149,61,.16);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .prod-card .prod-glyph svg{width:16px;height:16px;stroke:var(--gold-light);}
+  .prod-card span{position:relative;color:var(--white);font-weight:700;font-size:15px;z-index:2;}
+
+  /* ===== CTA BANNER ===== */
+  .cta-banner{
+    background:linear-gradient(120deg,var(--gold-dark),var(--gold));
+    border-radius:14px;padding:52px 56px;
+    display:flex;justify-content:space-between;align-items:center;gap:30px;
+    margin:0 24px;max-width:1132px;margin:0 auto;
+  }
+  .cta-banner h3{font-size:28px;font-weight:900;color:var(--navy-900);max-width:480px;line-height:1.2;}
+  .cta-banner p{color:rgba(20,37,55,.75);margin-top:8px;font-size:14.5px;}
+  .cta-banner .btn-gold{background:var(--navy-900);color:var(--white);}
+  .cta-banner .btn-gold:hover{background:var(--navy-700);}
+
+  /* ===== TESTIMONIALS ===== */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testi-card{
+    background:var(--off);border-radius:10px;padding:30px;position:relative;
+  }
+  .testi-card .quote-mark{
+    font-family:'Archivo';font-size:52px;color:var(--gold);opacity:.5;line-height:1;
+    margin-bottom:6px;
+  }
+  .testi-card p{font-size:14.5px;color:#4c5a68;line-height:1.6;margin-bottom:20px;}
+  .testi-person{display:flex;align-items:center;gap:12px;}
+  .testi-avatar{
+    width:40px;height:40px;border-radius:50%;background:var(--navy-900);
+    color:var(--gold);display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-family:'Archivo';font-size:14px;
+  }
+  .testi-person b{display:block;font-size:14px;color:var(--navy-900);}
+  .testi-person span{font-size:12px;color:#8593a1;}
+
+  /* ===== CONTACT ===== */
+  .contact-sec{background:var(--off);}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center;}
+  .contact-info h2{font-size:34px;font-weight:900;margin-bottom:14px;}
+  .contact-info>p{color:#5c6b7a;margin-bottom:32px;line-height:1.6;}
+  .contact-item{display:flex;gap:16px;margin-bottom:22px;}
+  .contact-item .ico-wrap{
+    width:46px;height:46px;background:var(--navy-900);border-radius:8px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .contact-item .ico-wrap svg{width:22px;height:22px;stroke:var(--gold);}
+  .contact-item b{display:block;font-size:14.5px;color:var(--navy-900);margin-bottom:2px;}
+  .contact-item span{font-size:14px;color:#5c6b7a;}
+  .contact-form{
+    background:var(--white);border-radius:12px;padding:38px;
+    box-shadow:0 24px 50px rgba(20,37,55,.08);
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-group label{display:block;font-size:13px;font-weight:700;color:var(--navy-900);margin-bottom:7px;}
+  .form-group input,.form-group textarea{
+    width:100%;border:1.5px solid #e2e8ee;border-radius:6px;padding:12px 14px;
+    font-family:'Inter';font-size:14px;color:var(--navy-900);
+  }
+  .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);}
+  .form-group{margin-bottom:16px;}
+  .form-submit{
+    width:100%;background:var(--navy-900);color:var(--white);border:none;
+    padding:15px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;
+  }
+  .form-submit:hover{background:var(--gold-dark);}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy-900);color:var(--ink-soft);padding-top:60px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .footer-logo .logo-mark{width:34px;height:34px;background:var(--gold);}
+  .footer-logo .logo-mark::after{background:var(--navy-900);width:13px;height:13px;}
+  .footer-logo b{color:var(--white);font-family:'Archivo';font-weight:900;font-size:17px;}
+  footer .col p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);max-width:280px;}
+  footer h5{color:var(--white);font-size:14px;font-weight:800;margin-bottom:18px;letter-spacing:.03em;}
+  footer .col a{display:block;font-size:13.5px;color:var(--ink-soft);margin-bottom:11px;}
+  footer .col a:hover{color:var(--gold);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 0;font-size:12.5px;color:#6d7f91;
+  }
+  .footer-social{display:flex;gap:12px;}
+  .footer-social a{
+    width:34px;height:34px;border:1px solid rgba(255,255,255,.15);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .footer-social a:hover{border-color:var(--gold);background:rgba(211,149,61,.1);}
+  .footer-social svg{width:15px;height:15px;stroke:var(--ink-soft);}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:100;
+    width:60px;height:60px;border-radius:50%;background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px rgba(37,211,102,.45);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{box-shadow:0 10px 26px rgba(37,211,102,.45)}50%{box-shadow:0 10px 30px rgba(37,211,102,.7)}}
+  .wa-float svg{width:30px;height:30px;fill:#fff;}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:980px){
+    nav.primary{display:none;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{height:340px;order:-1;}
+    .hero h1{font-size:38px;}
+    .services-grid,.showcase-grid,.testi-grid{grid-template-columns:repeat(2,1fr);}
+    .process-row{grid-template-columns:repeat(2,1fr);gap:30px;}
+    .process-row::before{display:none;}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .cta-banner{flex-direction:column;text-align:center;padding:40px 28px;}
+  }
+  @media(max-width:560px){
+    .services-grid,.showcase-grid,.testi-grid,.process-row,.footer-grid,.form-row{grid-template-columns:1fr;}
+    .hero h1{font-size:30px;}
+    .hero-stats{flex-wrap:wrap;row-gap:16px;}
+    .cta-banner h3{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="contact-strip">
+      <span>☎ (62) 3945-2100</span>
+      <span>✉ contato@verticegrafica.com.br</span>
+    </div>
+    <div class="contact-strip">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<header class="main">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      <div class="logo-text">
+        <b>VÉRTICE</b>
+        <span>GRÁFICA DIGITAL</span>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="#servicos">Serviços</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#processo">Como Funciona</a>
+      <a href="#depoimentos">Clientes</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="header-cta">Peça seu orçamento</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Gráfica digital em Goiânia</div>
+      <h1>Sua marca impressa com <em>precisão</em> e entrega rápida</h1>
+      <p class="lead">Da identidade visual ao produto final: cartões, adesivos, crachás, embalagens e brindes personalizados, produzidos com controle de qualidade em cada etapa.</p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn btn-gold">Solicitar orçamento grátis</a>
+        <a href="#servicos" class="btn btn-outline">Ver todos os serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>12 anos</b><span>de mercado</span></div>
+        <div><b>4.800+</b><span>projetos entregues</span></div>
+        <div><b>24-48h</b><span>prazo médio</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-blob"></div>
+      <div class="stamp"><span>QUALIDADE<br>GARANTIDA</span></div>
+      <div class="card-float card1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div><b>Impressão em 24h</b><span>para pedidos expressos</span></div>
+      </div>
+      <div class="card-float card2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4zm0 5l9 4 9-4M3 17l9 4 9-4"/></svg></div>
+        <div><b>+40 categorias</b><span>de produtos gráficos</span></div>
+      </div>
+      <div class="card-float card3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><b>Atendimento direto</b><span>via WhatsApp</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>★ ADESIVOS E SINALIZAÇÃO</span>
+    <span>★ CRACHÁS E CREDENCIAIS</span>
+    <span>★ EMBALAGENS E SACOLAS</span>
+    <span>★ IMPRESSÕES GRÁFICAS</span>
+    <span>★ PLOTAGEM DE PROJETOS</span>
+    <span>★ BRINDES PERSONALIZADOS</span>
+    <span>★ ADESIVOS E SINALIZAÇÃO</span>
+    <span>★ CRACHÁS E CREDENCIAIS</span>
+    <span>★ EMBALAGENS E SACOLAS</span>
+    <span>★ IMPRESSÕES GRÁFICAS</span>
+    <span>★ PLOTAGEM DE PROJETOS</span>
+    <span>★ BRINDES PERSONALIZADOS</span>
+  </div>
+</div>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">O que fazemos</div>
+      <h2>Um serviço gráfico completo, do conceito à entrega</h2>
+      <p>Escolha a categoria que precisa e receba um orçamento personalizado em minutos, sem burocracia.</p>
+    </div>
+    <div class="services-grid">
+      <a href="adesivos.html" class="service-card">
+        <span class="num">01</span>
+        <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Adesivos e Sinalização</h3>
+        <p>Adesivos de vitrine, placas, wayfinding e comunicação visual para o seu ponto físico.</p>
+      </a>
+      <a href="crachas.html" class="service-card">
+        <span class="num">02</span>
+        <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="20" rx="2"/><circle cx="12" cy="11" r="2.5"/><path d="M8 20h8"/></svg></div>
+        <h3>Crachás e Credenciais</h3>
+        <p>Identificação corporativa, cordões e cartões de acesso com acabamento profissional.</p>
+      </a>
+      <a href="embalagens.html" class="service-card">
+        <span class="num">03</span>
+        <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg></div>
+        <h3>Embalagens e Sacolas</h3>
+        <p>Caixas, sacolas e embalagens sob medida que reforçam a identidade do seu produto.</p>
+      </a>
+      <a href="impressoes.html" class="service-card">
+        <span class="num">04</span>
+        <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 19.5V6a2 2 0 012-2h9l5 5v10.5a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div>
+        <h3>Impressões Gráficas</h3>
+        <p>Cartões de visita, cardápios, folders, convites e materiais promocionais em geral.</p>
+      </a>
+      <a href="plotagem.html" class="service-card">
+        <span class="num">05</span>
+        <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v6h-6"/></svg></div>
+        <h3>Plotagem de Projetos</h3>
+        <p>Plantas arquitetônicas, banners e grandes formatos com nitidez em cada linha.</p>
+      </a>
+      <a href="brindes.html" class="service-card">
+        <span class="num">06</span>
+        <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 12v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8M2 7h20v5H2zM12 7v15M12 7c-1.5-3-6-3-6 0s4.5 3 6 0zM12 7c1.5-3 6-3 6 0s-4.5 3-6 0z"/></svg></div>
+        <h3>Brindes Customizados</h3>
+        <p>Canecas, squeezes, chaveiros e itens promocionais com a marca do seu negócio.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="processo" class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Como funciona</div>
+      <h2>Do pedido à entrega em 4 etapas simples</h2>
+      <p>Um processo transparente pensado para agilizar sua produção do início ao fim.</p>
+    </div>
+    <div class="process-row">
+      <div class="process-step">
+        <div class="step-dot">1</div>
+        <h4>Envie sua ideia</h4>
+        <p>Fale com nossa equipe pelo WhatsApp ou formulário e descreva o que precisa.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">2</div>
+        <h4>Receba a proposta</h4>
+        <p>Orçamento detalhado com prazos e opções de acabamento em poucas horas.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">3</div>
+        <h4>Aprovação da arte</h4>
+        <p>Prova digital enviada para sua conferência antes de seguir para produção.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">4</div>
+        <h4>Produção e entrega</h4>
+        <p>Impressão com controle de qualidade e envio ou retirada no prazo combinado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produtos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Catálogo</div>
+      <h2>Produtos mais pedidos pelos nossos clientes</h2>
+      <p>Uma amostra do que produzimos todos os dias para negócios de todos os tamanhos.</p>
+    </div>
+    <div class="showcase-grid">
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+        <span>Cartões de Visita</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+        <span>Cardápios</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+        <span>Sacolas Personalizadas</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+        <span>Copos e Squeezes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-banner">
+    <div>
+      <h3>Precisa de um orçamento hoje mesmo?</h3>
+      <p>Nossa equipe responde em poucos minutos e já envia a simulação de valores.</p>
+    </div>
+    <a href="#contato" class="btn btn-gold">Falar com um consultor</a>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Quem já produziu com a gente</div>
+      <h2>Empresas que confiam na Vértice</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="quote-mark">“</div>
+        <p>O prazo foi cumprido à risca e o acabamento dos crachás ficou impecável. Já é fornecedor fixo aqui.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">RM</div>
+          <div><b>Renata Mesquita</b><span>Clínica Vitalis</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">“</div>
+        <p>Pedimos embalagens personalizadas para o lançamento e o resultado superou o que a gente imaginava.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">JC</div>
+          <div><b>João Carvalho</b><span>Doce Instante Confeitaria</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">“</div>
+        <p>Atendimento rápido pelo WhatsApp e a plotagem das plantas saiu com nitidez total. Recomendo.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">FA</div>
+          <div><b>Fernanda Andrade</b><span>Andrade Arquitetura</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="contact-sec">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow" style="color:var(--gold-dark)">Fale com a gente</div>
+        <h2>Vamos colocar seu projeto no papel</h2>
+        <p>Preencha o formulário ou entre em contato pelos canais abaixo. Retornamos com o orçamento em até algumas horas.</p>
+        <div class="contact-item">
+          <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.902.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><b>Telefone / WhatsApp</b><span>(62) 3945-2100</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4V4z"/><path d="M4 6l8 7 8-7"/></svg></div>
+          <div><b>E-mail</b><span>contato@verticegrafica.com.br</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><b>Endereço</b><span>Av. T-63, Qd. 12, Setor Bueno — Goiânia, GO</span></div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Mensagem enviada ✓';">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" placeholder="Digite seu nome" required>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp</label>
+            <input type="text" placeholder="(00) 00000-0000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>O que você precisa?</label>
+          <textarea rows="4" placeholder="Conte um pouco sobre o seu projeto..."></textarea>
+        </div>
+        <button class="form-submit" type="submit">
+          Enviar mensagem
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="col">
+        <div class="footer-logo">
+          <div class="logo-mark"></div>
+          <b>VÉRTICE GRÁFICA</b>
+        </div>
+        <p>Soluções gráficas completas para empresas que querem se comunicar com qualidade, do rascunho ao produto final.</p>
+      </div>
+      <div class="col">
+        <h5>Institucional</h5>
+        <a href="#">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato">Orçamento</a>
+      </div>
+      <div class="col">
+        <h5>Categorias</h5>
+        <a href="#">Impressões Gráficas</a>
+        <a href="#">Adesivos e Sinalização</a>
+        <a href="#">Crachás e Credenciais</a>
+        <a href="#">Plotagem</a>
+      </div>
+      <div class="col">
+        <h5>Siga a Vértice</h5>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 9.4-8.4 16.2-16.9 11.4a10 10 0 007.3-2S3.9 16 3 12.4a4 4 0 003-.4C2.3 10.8 1.5 7.4 2.4 5c1.9 2.3 4.7 3.8 8 4-1-4.4 4.3-6.6 7-3.6a8 8 0 003-1.2c-.4 1.4-1.3 2.4-2.3 3.1A8 8 0 0022 4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vértice Gráfica Digital — Todos os direitos reservados.</span>
+      <span>Goiânia, GO</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" title="Fale conosco no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.05-1.32A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm.02 18.06c-1.6 0-3.16-.42-4.53-1.23l-.32-.19-3.36.88.9-3.28-.21-.34a8.06 8.06 0 01-1.24-4.3c0-4.46 3.63-8.08 8.09-8.08 4.46 0 8.08 3.62 8.08 8.08 0 4.46-3.63 8.46-7.41 8.46z"/></svg>
+</a>
+
+</body>
+</html>
