@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embalagens e Sacolas — Vértice Gráfica Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#142537;
+    --navy-800:#1b3049;
+    --navy-700:#233c59;
+    --gold:#d3953d;
+    --gold-light:#e6b06a;
+    --gold-dark:#b87a2a;
+    --white:#ffffff;
+    --off:#f4f6f8;
+    --ink-soft:#9db0c2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--white);color:var(--navy-900);}
+  h1,h2,h3,.display{font-family:'Archivo',sans-serif;letter-spacing:-0.02em;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* topbar/header shared */
+  .topbar{background:var(--navy-900);color:var(--ink-soft);font-size:13px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;}
+  .topbar a{color:var(--ink-soft);}
+  .topbar .contact-strip{display:flex;gap:22px;}
+  .topbar .contact-strip span{display:flex;align-items:center;gap:6px;}
+  header.main{background:var(--white);border-bottom:1px solid #e9edf1;position:sticky;top:0;z-index:50;}
+  header.main .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:40px;height:40px;background:var(--navy-900);display:flex;align-items:center;justify-content:center;transform:rotate(45deg);position:relative;}
+  .logo-mark::after{content:'';width:16px;height:16px;background:var(--gold);position:absolute;transform:rotate(0deg);}
+  .logo-text{line-height:1.05;}
+  .logo-text b{display:block;font-family:'Archivo';font-weight:900;font-size:19px;color:var(--navy-900);}
+  .logo-text span{display:block;font-size:11px;letter-spacing:.14em;color:var(--gold-dark);font-weight:700;}
+  nav.primary{display:flex;gap:30px;font-weight:600;font-size:14.5px;}
+  nav.primary a{position:relative;padding:6px 0;color:var(--navy-800);}
+  nav.primary a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .25s ease;}
+  nav.primary a:hover::after{width:100%;}
+  .header-cta{display:flex;align-items:center;gap:10px;background:var(--navy-900);color:var(--white);padding:11px 20px;font-weight:700;font-size:14px;border-radius:2px;}
+  .header-cta:hover{background:var(--gold-dark);}
+
+  /* breadcrumb */
+  .breadcrumb-bar{background:var(--off);padding:16px 0;border-bottom:1px solid #e9edf1;}
+  .breadcrumb-bar .wrap{display:flex;align-items:center;gap:8px;font-size:13.5px;color:#6b7a89;}
+  .breadcrumb-bar a{color:#6b7a89;font-weight:600;}
+  .breadcrumb-bar a:hover{color:var(--gold-dark);}
+  .breadcrumb-bar span.sep{color:#bcc7d1;}
+  .breadcrumb-bar span.current{color:var(--navy-900);font-weight:700;}
+
+  /* product hero */
+  .product-hero{padding:56px 0 64px;}
+  .product-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;}
+  .product-visual{
+    aspect-ratio:4/3.4;border-radius:14px;position:relative;overflow:hidden;
+    background:linear-gradient(155deg,var(--navy-900),var(--navy-700));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .product-visual::before{content:'';position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(211,149,61,.24) 0%,transparent 70%);}
+  .product-visual svg{width:120px;height:120px;stroke:var(--gold);position:relative;z-index:2;}
+  .product-visual .tag-corner{
+    position:absolute;top:20px;left:20px;background:var(--gold);color:var(--navy-900);
+    font-weight:800;font-size:11.5px;letter-spacing:.06em;padding:6px 14px;border-radius:20px;
+    text-transform:uppercase;z-index:3;
+  }
+  .product-info h1{font-size:34px;font-weight:900;margin-bottom:16px;}
+  .product-meta{
+    display:flex;align-items:center;gap:10px;color:#7a8a99;font-size:13.5px;
+    background:var(--off);padding:10px 16px;border-radius:8px;margin-bottom:20px;width:fit-content;
+  }
+  .product-info>p.desc{color:#57687a;font-size:16px;line-height:1.7;margin-bottom:28px;max-width:520px;}
+  .product-cta-row{display:flex;align-items:center;gap:16px;margin-bottom:30px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;font-weight:700;font-size:15px;border-radius:2px;transition:.2s ease;}
+  .btn-gold{background:var(--gold);color:var(--navy-900);}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-outline{border:1.5px solid #e2e8ee;color:var(--navy-800);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold-dark);}
+  .product-divider{border:none;border-top:1px solid #e9edf1;margin:26px 0;}
+  .product-footer-meta{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:#7a8a99;}
+  .product-footer-meta b{color:var(--navy-900);}
+  .share-row{display:flex;gap:10px;}
+  .share-row a{width:32px;height:32px;border-radius:50%;border:1px solid #e2e8ee;display:flex;align-items:center;justify-content:center;}
+  .share-row a:hover{border-color:var(--gold);background:#fbf3e8;}
+  .share-row svg{width:14px;height:14px;stroke:var(--navy-800);}
+
+  /* also-see */
+  .also-see{background:var(--navy-900);padding:46px 0;}
+  .also-see .section-label{color:var(--gold-light);text-align:center;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px;}
+  .also-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .also-btn{
+    background:var(--navy-800);color:var(--white);text-align:center;padding:16px;
+    border-radius:6px;font-weight:700;font-size:14.5px;border:1px solid rgba(255,255,255,.06);
+    transition:.2s;
+  }
+  .also-btn:hover{background:var(--gold);color:var(--navy-900);}
+  .also-btn.back{grid-column:1/-1;background:transparent;border:1.5px solid var(--gold);color:var(--gold-light);}
+  .also-btn.back:hover{background:var(--gold);color:var(--navy-900);}
+
+  /* other services */
+  section.other-services{padding:80px 0;}
+  .section-head{max-width:600px;margin:0 auto 44px;text-align:center;}
+  .section-head .eyebrow{color:var(--gold-dark);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;}
+  .section-head h2{font-size:30px;font-weight:900;}
+  .showcase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .prod-card{border-radius:10px;overflow:hidden;position:relative;aspect-ratio:3/3.6;background:linear-gradient(160deg,var(--off),#e6ebef);display:flex;align-items:flex-end;padding:18px;}
+  .prod-card::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,37,55,.88) 0%,rgba(20,37,55,0) 55%);}
+  .prod-card .prod-glyph{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:rgba(211,149,61,.16);display:flex;align-items:center;justify-content:center;}
+  .prod-card .prod-glyph svg{width:16px;height:16px;stroke:var(--gold-light);}
+  .prod-card span{position:relative;color:var(--white);font-weight:700;font-size:15px;z-index:2;}
+
+  footer{background:var(--navy-900);color:var(--ink-soft);padding-top:60px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .footer-logo .logo-mark{width:34px;height:34px;background:var(--gold);}
+  .footer-logo .logo-mark::after{background:var(--navy-900);width:13px;height:13px;}
+  .footer-logo b{color:var(--white);font-family:'Archivo';font-weight:900;font-size:17px;}
+  footer .col p{font-size:13.5px;line-height:1.7;color:var(--ink-soft);max-width:280px;}
+  footer h5{color:var(--white);font-size:14px;font-weight:800;margin-bottom:18px;letter-spacing:.03em;}
+  footer .col a{display:block;font-size:13.5px;color:var(--ink-soft);margin-bottom:11px;}
+  footer .col a:hover{color:var(--gold);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:12.5px;color:#6d7f91;}
+
+  .wa-float{position:fixed;bottom:26px;right:26px;z-index:100;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.45);animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{box-shadow:0 10px 26px rgba(37,211,102,.45)}50%{box-shadow:0 10px 30px rgba(37,211,102,.7)}}
+  .wa-float svg{width:30px;height:30px;fill:#fff;}
+
+  @media(max-width:980px){
+    nav.primary{display:none;}
+    .product-grid{grid-template-columns:1fr;}
+    .also-grid{grid-template-columns:repeat(2,1fr);}
+    .showcase-grid{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){
+    .also-grid,.showcase-grid,.footer-grid{grid-template-columns:1fr;}
+    .product-info h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="contact-strip">
+      <span>☎ (62) 3945-2100</span>
+      <span>✉ contato@verticegrafica.com.br</span>
+    </div>
+    <div class="contact-strip">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<header class="main">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"></div>
+      <div class="logo-text">
+        <b>VÉRTICE</b>
+        <span>GRÁFICA DIGITAL</span>
+      </div>
+    </a>
+    <nav class="primary">
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#produtos">Produtos</a>
+      <a href="index.html#processo">Como Funciona</a>
+      <a href="index.html#depoimentos">Clientes</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <a href="index.html#contato" class="header-cta">Peça seu orçamento</a>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="wrap">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="index.html#servicos">Serviços</a>
+    <span class="sep">/</span>
+    <span class="current">Embalagens e Sacolas</span>
+  </div>
+</div>
+
+<section class="product-hero">
+  <div class="wrap">
+    <div class="product-grid">
+      <div class="product-visual">
+        <span class="tag-corner">03</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg>
+      </div>
+      <div class="product-info">
+        <h1>Embalagens e Sacolas</h1>
+        <div class="product-meta">👁 11 pessoas vendo este serviço agora</div>
+        <p class="desc">Caixas, sacolas e embalagens sob medida que reforçam a identidade do seu produto na hora da entrega. Produzimos em papel kraft, papel cartão e materiais recicláveis, com sua marca impressa em alta qualidade.</p>
+        <div class="product-cta-row">
+          <a href="https://wa.me/556239452100" class="btn btn-gold">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.05-1.32A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            Solicitar orçamento
+          </a>
+          <a href="index.html#contato" class="btn btn-outline">Falar com um consultor</a>
+        </div>
+        <hr class="product-divider">
+        <div class="product-footer-meta">
+          <span>Categoria: <b>Embalagens e Sacolas</b></span>
+          <div class="share-row">
+            <a href="#" title="Compartilhar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
+            <a href="#" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+            <a href="#" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="also-see">
+  <div class="wrap">
+    <div class="section-label">Veja também</div>
+    <div class="also-grid">
+      <a href="adesivos.html" class="also-btn">Adesivos e Sinalização</a>
+      <a href="crachas.html" class="also-btn">Crachás e Credenciais</a>
+      <a href="impressoes.html" class="also-btn">Impressões Gráficas</a>
+      <a href="plotagem.html" class="also-btn">Plotagem de Projetos</a>
+      <a href="brindes.html" class="also-btn">Brindes Customizados</a>
+      <a href="index.html#servicos" class="also-btn back">← Voltar para todos os serviços</a>
+    </div>
+  </div>
+</section>
+
+<section class="other-services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Você também pode gostar</div>
+      <h2>Outros produtos dessa categoria</h2>
+    </div>
+    <div class="showcase-grid">
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg></div>
+        <span>Sacola Kraft</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg></div>
+        <span>Caixa Personalizada</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg></div>
+        <span>Embalagem para Delivery</span>
+      </div>
+      <div class="prod-card">
+        <div class="prod-glyph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 19.5V6a2 2 0 012-2h9l5 5v10.5a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div>
+        <span>Etiqueta de Produto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="col">
+        <div class="footer-logo">
+          <div class="logo-mark"></div>
+          <b>VÉRTICE GRÁFICA</b>
+        </div>
+        <p>Soluções gráficas completas para empresas que querem se comunicar com qualidade, do rascunho ao produto final.</p>
+      </div>
+      <div class="col">
+        <h5>Institucional</h5>
+        <a href="index.html">Início</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#contato">Contato</a>
+        <a href="index.html#contato">Orçamento</a>
+      </div>
+      <div class="col">
+        <h5>Categorias</h5>
+        <a href="adesivos.html">Adesivos e Sinalização</a>
+        <a href="crachas.html">Crachás e Credenciais</a>
+        <a href="embalagens.html">Embalagens e Sacolas</a>
+        <a href="impressoes.html">Impressões Gráficas</a>
+        <a href="plotagem.html">Plotagem de Projetos</a>
+        <a href="brindes.html">Brindes Customizados</a>
+      </div>
+      <div class="col">
+        <h5>Contato</h5>
+        <a href="tel:+556239452100">(62) 3945-2100</a>
+        <a href="mailto:contato@verticegrafica.com.br">contato@verticegrafica.com.br</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vértice Gráfica Digital — Todos os direitos reservados.</span>
+      <span>Goiânia, GO</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/556239452100" class="wa-float" title="Fale conosco no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.05-1.32A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm.02 18.06c-1.6 0-3.16-.42-4.53-1.23l-.32-.19-3.36.88.9-3.28-.21-.34a8.06 8.06 0 01-1.24-4.3c0-4.46 3.63-8.08 8.09-8.08 4.46 0 8.08 3.62 8.08 8.08 0 4.46-3.63 8.46-7.41 8.46z"/></svg>
+</a>
+
+</body>
+</html>
