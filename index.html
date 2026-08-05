@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vértice Gráfica Digital — Impressão, Sinalização e Brindes</title>
+<title>Gráfica Central — Impressão, Sinalização e Brindes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -354,6 +354,8 @@
     .hero-stats{flex-wrap:wrap;row-gap:16px;}
     .cta-banner h3{font-size:22px;}
   }
+  .logo-img{height:42px;width:auto;display:block;}
+  .footer-logo-img{height:32px;width:auto;display:block;}
 </style>
 </head>
 <body>
@@ -361,12 +363,12 @@
 <div class="topbar">
   <div class="wrap">
     <div class="contact-strip">
-      <span>☎ (62) 3945-2100</span>
-      <span>✉ contato@verticegrafica.com.br</span>
+      <span>☎ (61) 3336-7628</span>
+      <span>✉ graficacentraldf@gmail.com</span>
     </div>
     <div class="contact-strip">
       <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
+      <a href="https://www.instagram.com/graficacentraldf/" target="_blank" rel="noopener">Instagram</a>
       <a href="#">LinkedIn</a>
     </div>
   </div>
@@ -375,11 +377,7 @@
 <header class="main">
   <div class="wrap">
     <div class="logo">
-      <div class="logo-mark"></div>
-      <div class="logo-text">
-        <b>VÉRTICE</b>
-        <span>GRÁFICA DIGITAL</span>
-      </div>
+      <img src="assets/logo.png" alt="Gráfica Central" class="logo-img">
     </div>
     <nav class="primary">
       <a href="#servicos">Serviços</a>
@@ -395,7 +393,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">Gráfica digital em Goiânia</div>
+      <div class="eyebrow">Gráfica digital em Taguatinga-DF</div>
       <h1>Sua marca impressa com <em>precisão</em> e entrega rápida</h1>
       <p class="lead">Da identidade visual ao produto final: cartões, adesivos, crachás, embalagens e brindes personalizados, produzidos com controle de qualidade em cada etapa.</p>
       <div class="hero-ctas">
@@ -566,7 +564,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Quem já produziu com a gente</div>
-      <h2>Empresas que confiam na Vértice</h2>
+      <h2>Empresas que confiam na Gráfica Central</h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
@@ -606,35 +604,38 @@
         <p>Preencha o formulário ou entre em contato pelos canais abaixo. Retornamos com o orçamento em até algumas horas.</p>
         <div class="contact-item">
           <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.902.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-          <div><b>Telefone / WhatsApp</b><span>(62) 3945-2100</span></div>
+          <div><b>Telefone / WhatsApp</b><span>(61) 3336-7628</span></div>
         </div>
         <div class="contact-item">
           <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4V4z"/><path d="M4 6l8 7 8-7"/></svg></div>
-          <div><b>E-mail</b><span>contato@verticegrafica.com.br</span></div>
+          <div><b>E-mail</b><span>graficacentraldf@gmail.com</span></div>
         </div>
         <div class="contact-item">
           <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><b>Endereço</b><span>Av. T-63, Qd. 12, Setor Bueno — Goiânia, GO</span></div>
+          <div><b>Endereço</b><span>St. de Indústrias Gráficas Lote 4/5 E 02 - Taguatinga, Brasília - DF, 72153-000</span></div>
         </div>
       </div>
-      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Mensagem enviada ✓';">
+      <form class="contact-form" action="https://formsubmit.co/graficacentraldf@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Novo contato pelo site — Gráfica Central">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div class="form-row">
           <div class="form-group">
             <label>Nome completo</label>
-            <input type="text" placeholder="Digite seu nome" required>
+            <input type="text" name="Nome" placeholder="Digite seu nome" required>
           </div>
           <div class="form-group">
             <label>WhatsApp</label>
-            <input type="text" placeholder="(00) 00000-0000" required>
+            <input type="text" name="WhatsApp" placeholder="(00) 00000-0000" required>
           </div>
         </div>
         <div class="form-group">
           <label>E-mail</label>
-          <input type="email" placeholder="seu@email.com" required>
+          <input type="email" name="Email" placeholder="seu@email.com" required>
         </div>
         <div class="form-group">
           <label>O que você precisa?</label>
-          <textarea rows="4" placeholder="Conte um pouco sobre o seu projeto..."></textarea>
+          <textarea rows="4" name="Mensagem" placeholder="Conte um pouco sobre o seu projeto..."></textarea>
         </div>
         <button class="form-submit" type="submit">
           Enviar mensagem
@@ -650,8 +651,7 @@
     <div class="footer-grid">
       <div class="col">
         <div class="footer-logo">
-          <div class="logo-mark"></div>
-          <b>VÉRTICE GRÁFICA</b>
+          <img src="assets/logo-white.png" alt="Gráfica Central" class="footer-logo-img">
         </div>
         <p>Soluções gráficas completas para empresas que querem se comunicar com qualidade, do rascunho ao produto final.</p>
       </div>
@@ -670,22 +670,22 @@
         <a href="#">Plotagem</a>
       </div>
       <div class="col">
-        <h5>Siga a Vértice</h5>
+        <h5>Siga a Gráfica Central</h5>
         <div class="footer-social">
-          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg></a>
-          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 9.4-8.4 16.2-16.9 11.4a10 10 0 007.3-2S3.9 16 3 12.4a4 4 0 003-.4C2.3 10.8 1.5 7.4 2.4 5c1.9 2.3 4.7 3.8 8 4-1-4.4 4.3-6.6 7-3.6a8 8 0 003-1.2c-.4 1.4-1.3 2.4-2.3 3.1A8 8 0 0022 4z"/></svg></a>
+          <a href="#" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg></a>
+          <a href="https://www.instagram.com/graficacentraldf/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 9.4-8.4 16.2-16.9 11.4a10 10 0 007.3-2S3.9 16 3 12.4a4 4 0 003-.4C2.3 10.8 1.5 7.4 2.4 5c1.9 2.3 4.7 3.8 8 4-1-4.4 4.3-6.6 7-3.6a8 8 0 003-1.2c-.4 1.4-1.3 2.4-2.3 3.1A8 8 0 0022 4z"/></svg></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Vértice Gráfica Digital — Todos os direitos reservados.</span>
-      <span>Goiânia, GO</span>
+      <span>© 2026 Gráfica Central — Todos os direitos reservados.</span>
+      <span>Taguatinga-DF</span>
     </div>
   </div>
 </footer>
 
-<a href="#" class="wa-float" title="Fale conosco no WhatsApp">
+<a href="https://wa.me/556133367628" class="wa-float" title="Fale conosco no WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.05-1.32A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm.02 18.06c-1.6 0-3.16-.42-4.53-1.23l-.32-.19-3.36.88.9-3.28-.21-.34a8.06 8.06 0 01-1.24-4.3c0-4.46 3.63-8.08 8.09-8.08 4.46 0 8.08 3.62 8.08 8.08 0 4.46-3.63 8.46-7.41 8.46z"/></svg>
 </a>
 
