@@ -1,0 +1,28 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f6f8"/>
+      <stop offset="100%" stop-color="#e6ebef"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#bg)"/>
+
+  <!-- cordão -->
+  <path d="M186 20 Q200 55 172 78 Q144 100 172 128" fill="none" stroke="#d3953d" stroke-width="9" stroke-linecap="round"/>
+  <path d="M214 20 Q200 55 228 78 Q256 100 228 128" fill="none" stroke="#142537" stroke-width="9" stroke-linecap="round"/>
+  <rect x="180" y="14" width="40" height="14" rx="4" fill="#233c59"/>
+
+  <!-- crachá -->
+  <rect x="130" y="118" width="140" height="102" rx="4" fill="#dbe2e8"/>
+  <rect x="126" y="112" width="140" height="102" rx="14" fill="#ffffff" stroke="#dbe2e8" stroke-width="1.5"/>
+  <rect x="126" y="112" width="140" height="38" rx="14" fill="#142537"/>
+  <rect x="126" y="136" width="140" height="14" fill="#142537"/>
+  <circle cx="196" cy="112" r="7" fill="#f4f6f8"/>
+  <circle cx="196" cy="180" r="28" fill="#d3953d"/>
+  <path d="M196 168a12 12 0 100 24 12 12 0 000-24z" fill="#ffffff" opacity="0.001"/>
+  <circle cx="196" cy="174" r="9" fill="#ffffff"/>
+  <path d="M178 196c4-11 12-16 18-16s14 5 18 16" fill="#ffffff"/>
+  <rect x="150" y="212" width="92" height="6" rx="3" fill="#e2e8ee"/>
+
+  <text x="200" y="235" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#5c6b7a" letter-spacing="0.5">Crachás &amp; Credenciais</text>
+</svg>
