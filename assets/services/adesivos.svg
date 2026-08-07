@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f6f8"/>
+      <stop offset="100%" stop-color="#e6ebef"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#bg)"/>
+
+  <!-- placa de sinalização -->
+  <rect x="80" y="150" width="10" height="55" rx="3" fill="#233c59"/>
+  <rect x="110" y="52" width="160" height="98" rx="12" fill="#ffffff" stroke="#dbe2e8" stroke-width="1.5"/>
+  <rect x="110" y="52" width="160" height="26" rx="12" fill="#142537"/>
+  <rect x="110" y="66" width="160" height="12" fill="#142537"/>
+  <rect x="128" y="94" width="90" height="8" rx="4" fill="#d3953d"/>
+  <rect x="128" y="110" width="124" height="6" rx="3" fill="#c7d1da"/>
+  <rect x="128" y="122" width="100" height="6" rx="3" fill="#c7d1da"/>
+  <circle cx="238" cy="112" r="16" fill="#f4f6f8" stroke="#d3953d" stroke-width="2.5"/>
+  <path d="M232 112l4 4 8-9" fill="none" stroke="#142537" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- adesivo circular sendo descolado -->
+  <g>
+    <circle cx="298" cy="150" r="54" fill="#d3953d"/>
+    <circle cx="298" cy="150" r="54" fill="none" stroke="#142537" stroke-width="2" stroke-dasharray="5 5" opacity="0.5"/>
+    <path d="M298 96 A54 54 0 0 1 344 176 L298 150 Z" fill="#f4f6f8" opacity="0.92"/>
+    <path d="M298 96 A54 54 0 0 1 344 176" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="298" cy="150" r="20" fill="#142537"/>
+    <path d="M289 150l7 7 13-14" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="200" y="228" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#5c6b7a" letter-spacing="0.5">Adesivos &amp; Sinalização</text>
+</svg>
