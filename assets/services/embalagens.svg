@@ -1,0 +1,25 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f6f8"/>
+      <stop offset="100%" stop-color="#e6ebef"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#bg)"/>
+
+  <!-- caixa aberta -->
+  <path d="M96 122 L196 100 L196 202 L96 214 Z" fill="#233c59"/>
+  <path d="M196 100 L196 202 L206 198 L206 96 Z" fill="#1b3049"/>
+  <rect x="122" y="140" width="52" height="8" rx="4" fill="#d3953d"/>
+  <path d="M96 122 L196 100 L206 96 L108 118 Z" fill="#31537a"/>
+
+  <!-- sacola -->
+  <path d="M240 118 Q240 92 262 92 Q284 92 284 118" fill="none" stroke="#d3953d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M226 118 L298 118 L288 214 L236 214 Z" fill="#142537"/>
+  <path d="M226 118 L298 118 L296 138 L228 138 Z" fill="#1b3049"/>
+  <circle cx="262" cy="176" r="24" fill="#f4f6f8"/>
+  <circle cx="262" cy="176" r="24" fill="none" stroke="#d3953d" stroke-width="3"/>
+  <path d="M252 176l7 7 15-15" fill="none" stroke="#142537" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="200" y="235" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#5c6b7a" letter-spacing="0.5">Embalagens &amp; Sacolas</text>
+</svg>
