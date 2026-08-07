@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f6f8"/>
+      <stop offset="100%" stop-color="#e6ebef"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#bg)"/>
+
+  <!-- cardápio trifold aberto -->
+  <g transform="rotate(-6 200 130)">
+    <rect x="120" y="46" width="70" height="150" rx="6" fill="#ffffff" stroke="#dbe2e8" stroke-width="1.5"/>
+    <rect x="120" y="46" width="70" height="20" fill="#142537"/>
+    <rect x="132" y="80" width="46" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="132" y="92" width="36" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="132" y="110" width="46" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="132" y="122" width="36" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="132" y="140" width="46" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="132" y="152" width="30" height="5" rx="2.5" fill="#c7d1da"/>
+  </g>
+  <g>
+    <rect x="185" y="40" width="76" height="160" rx="6" fill="#f4f6f8" stroke="#dbe2e8" stroke-width="1.5"/>
+    <circle cx="223" cy="82" r="20" fill="#d3953d"/>
+    <path d="M215 82h16M223 74v16" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="203" y="114" width="40" height="9" rx="4" fill="#142537"/>
+    <rect x="197" y="132" width="52" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="203" y="144" width="40" height="5" rx="2.5" fill="#c7d1da"/>
+  </g>
+  <g transform="rotate(8 260 130)">
+    <rect x="230" y="46" width="70" height="150" rx="6" fill="#ffffff" stroke="#dbe2e8" stroke-width="1.5"/>
+    <rect x="230" y="46" width="70" height="20" fill="#d3953d"/>
+    <rect x="242" y="80" width="46" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="242" y="92" width="36" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="242" y="110" width="46" height="5" rx="2.5" fill="#c7d1da"/>
+    <rect x="242" y="122" width="36" height="5" rx="2.5" fill="#c7d1da"/>
+    <circle cx="265" cy="155" r="16" fill="#233c59"/>
+  </g>
+
+  <!-- talher decorativo -->
+  <g transform="translate(96 150)" opacity="0.9">
+    <rect x="0" y="0" width="4" height="40" rx="2" fill="#d3953d"/>
+    <path d="M-6 0 v14 M0 0 v14 M6 0 v14" stroke="#d3953d" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
